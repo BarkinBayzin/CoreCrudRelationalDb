@@ -19,6 +19,7 @@ namespace CoreCrudRelationalDb.Controllers
         public IActionResult Index()
         {
             //Ödev : .NET Core Loading çeşitlerini araştırın!!
+            //Ödev 2 : .NET Core data transfer yöntemlerini araştırın!!
 
             //Include : Her bir çalışanı getirirken, depatman bilgisiyle birlikte getirilecek!
             return View(_db.Calisanlar.Include(x => x.Departman).ToList());
