@@ -1,0 +1,16 @@
+﻿@model Calisan
+@{
+    ViewBag.Title = "Delete Confirmation";
+}
+
+<h1>Delete Confirmation</h1>
+
+<form method="post" asp-controller="Calisan" asp-action="DeleteConfirmation">
+    <p>
+        @Model.TamAd adlı çalışan veritabanından silinecektir. Onaylıyor musunuz?
+    </p>
+
+    <input type="hidden" asp-for="Id"/>
+    <a class="btn btn-secondary" asp-action="Index">Vazgeç</a>
+    <button class="btn btn-danger ml-2">Onaylıyorum, Sil</button>
+</form>

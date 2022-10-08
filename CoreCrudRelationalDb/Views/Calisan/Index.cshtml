@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CoreCrudRelationalDb.Models.Entities.Calisan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (@TempData["mesaj"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["mesaj"]
+    </div>
+}
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Çalışanlar</h1>
+    <a asp-controller="Calisan" asp-action="Create" class="btn btn-primary mb-2">Yeni Çalışan</a>
+</div>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Tam Adı
+            </th>
+            <th>
+                Departman
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.TamAd
+            </td>
+            <td>
+                @item.Departman.Ad
+            </td>
+            <td class="text-right">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-danger">Düzenle</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
